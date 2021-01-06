@@ -18,4 +18,8 @@ public class RoundData : ScriptableObject
     private float roundTime = 60f;
     public float RoundTime { get => roundTime; }//readonly serialized field pattern
 
+    [SerializeField]
+    private GameObject roundPrefab;
+    public GameObject RoundPrefab { get => roundPrefab; }//readonly serialized field pattern
+
 }
