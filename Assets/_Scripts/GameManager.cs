@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     private const int SCENE_COUNT = 2;
 
+    private int NextIndex { get => (int)Mathf.Repeat(roundIndex + 1, rounds.Length); }
 
     //private runtime data
     private GameObject currentRoundInstance;
@@ -75,7 +76,11 @@ public class GameManager : MonoBehaviour
             {
                 //TODO YOU WIN!
                 //on to the next level
-                StartNewRound(roundIndex + 1);//load next round assets
+                var seq = DOTween.Sequence();
+
+                seq.AppendInterval(3)//wait some seconds
+                    .AppendCallback(//then call the following function:
+                        () => StartNewRound(NextIndex));//load next round assets
             }
             else
             {
@@ -98,6 +103,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private static bool ListContainsString(List<string> acceptedAnswers, 
+        string playerAnswer)
+    {
+        var accepted = false;
+        for(var i = 0; i < acceptedAnswers.Count; ++i)
+        {
+            var ans = acceptedAnswers[i];
+            if(ans == playerAnswer)
+            {
+                accepted = true;
+                break;
+            }
+        }
+        return accepted;
+    }
+
     private bool CheckEntries()
     {
         var entriesAreAccepted = true; //optimistic
@@ -106,7 +127,7 @@ public class GameManager : MonoBehaviour
         //for all input fields, compare with data answers
         
         //check field 1
-        if (answers.Field1Answers.Contains(inputFields.FieldOneText))
+        if (ListContainsString(answers.Field1Answers, inputFields.FieldOneText))
         {   //correct answer in field 1
             inputFields.JumpField(1);
         }
@@ -117,7 +138,7 @@ public class GameManager : MonoBehaviour
         }
 
         //check field 2
-        if (answers.Field1Answers.Contains(inputFields.FieldOneText))
+        if (ListContainsString(answers.Field2Answers, inputFields.FieldTwoText))
         {   //correct answer in field 2
             inputFields.JumpField(2);
         }
@@ -128,7 +149,7 @@ public class GameManager : MonoBehaviour
         }
 
         //check field 3
-        if (answers.Field1Answers.Contains(inputFields.FieldOneText))
+        if (ListContainsString(answers.Field3Answers, inputFields.FieldThreeText))
         {   //correct answer in field 3
             inputFields.JumpField(3);
         }
@@ -170,6 +191,7 @@ public class GameManager : MonoBehaviour
         roundTimerRoutine = StartCoroutine(CountRoundTimer(data.RoundTime));
 
         //play animations
+        inputFields.ResetGame();
     }
 
     private void OnRoundTimerElapsed()

@@ -36,6 +36,9 @@ public class InputFieldController : MonoBehaviour
     private float shakeWrongDuration = 0.8f;
 
     [SerializeField]
+    private float shakeStrength = 5;
+
+    [SerializeField]
     private float shakeCorrectDuration = 1.0f;
 
     [SerializeField]
@@ -47,6 +50,11 @@ public class InputFieldController : MonoBehaviour
     [SerializeField]
     private int jumpCount = 1;
 
+    //runtime values
+    private Vector3 cachedField1Position;
+    private Vector3 cachedField2Position;
+    private Vector3 cachedField3Position;
+
     /// <summary>
     /// Extract input text from each field.
     /// </summary>
@@ -55,6 +63,9 @@ public class InputFieldController : MonoBehaviour
 
     private void Start()
     {
+        cachedField1Position = fieldOneRect.localPosition;
+        cachedField2Position = fieldTwoRect.localPosition;
+        cachedField3Position = fieldThreeRect.localPosition;
     }
 
     private void JumpField(RectTransform fieldRect)
@@ -93,7 +104,7 @@ public class InputFieldController : MonoBehaviour
 
     private void ShakeField(RectTransform field)
     {
-        field.DOShakePosition(shakeWrongDuration);
+        field.DOShakePosition(shakeWrongDuration, shakeStrength);
     }
 
     public void ShakeField(int fieldNum)
@@ -117,5 +128,12 @@ public class InputFieldController : MonoBehaviour
         {
             Debug.LogError("dangit.");
         }
+    }
+
+    public void ResetGame()
+    {
+        fieldOneRect.DOLocalMove(cachedField1Position, 0.5f);
+        fieldTwoRect.DOLocalMove(cachedField2Position, 0.5f);
+        fieldThreeRect.DOLocalMove(cachedField3Position, 0.5f);
     }
 }
