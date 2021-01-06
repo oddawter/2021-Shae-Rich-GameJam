@@ -59,9 +59,10 @@ MonoBehaviour:
   fieldThree: {fileID: 6814448442733274382}
   fieldThreeRect: {fileID: 8108700729083554433}
   shakeWrongDuration: 0.8
+  shakeStrength: 5
   shakeCorrectDuration: 1
-  jumpStr: 10
-  jumpHeight: 25
+  jumpStr: 50
+  jumpHeight: 30
   jumpCount: 1
 --- !u!114 &8126511122948682135
 MonoBehaviour:
