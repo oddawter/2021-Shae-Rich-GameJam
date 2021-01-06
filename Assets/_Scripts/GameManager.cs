@@ -1,20 +1,17 @@
-﻿using System.Timers;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ScriptableObjectArchitecture;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("---Game Manager---")]
-    [SerializeField]
-    private RoundData[] rounds;
-
-    [SerializeField]
-    private int roundIndex = 0;
+    public static GameManager Instance { get; private set; }
 
     private RoundData CurrentRoundData { get => rounds[roundIndex]; }
+
+    [Header("---Game Manager---")]
 
     /// <summary>
     /// parent new rounds to this object
@@ -25,6 +22,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private FloatVariable roundTimer;
+
+    [SerializeField]
+    private RoundData[] rounds;
+
+    [SerializeField]
+    private int roundIndex = 0;
 
     [Header("---Scene Management---")]
     [SerializeField]
@@ -38,7 +41,6 @@ public class GameManager : MonoBehaviour
 
     private const int SCENE_COUNT = 2;
 
-    public static GameManager Instance { get; private set; }
 
     //private runtime data
     private GameObject currentRoundInstance;
@@ -54,7 +56,25 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //get inputs
+        var pressed_enter =
+            Input.GetKeyDown(KeyCode.Return) ||
+            Input.GetKeyDown(KeyCode.KeypadEnter);
+
+        //handle inputs
+        if (pressed_enter)
+        {
+            if (CheckEntries())
+            {
+                //TODO YOU WIN!
+                //on to the next level
+                StartNewRound(roundIndex + 1);//load next round assets
+            }
+            else
+            {
+                //TODO 1 or more is incorrect
+            }
+        }
     }
 
     private static void InitSingleton(GameManager instance)
@@ -69,6 +89,16 @@ public class GameManager : MonoBehaviour
             Debug.LogError("[GameManager] singleton error");
             instance.gameObject.SetActive(false);
         }
+    }
+
+    private bool CheckEntries()
+    {
+        var entriesAreAccepted = false; //pessimistic
+
+        //for all input fields, compare with data answers
+        //track which 
+
+        return entriesAreAccepted;
     }
 
     private void StartNewRound(int newRoundIndex)
