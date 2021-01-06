@@ -55,6 +55,11 @@ public class GameManager : MonoBehaviour
         InitSingleton(this);
     }
 
+    private void Start()
+    {
+        StartNewRound(0);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -95,7 +100,7 @@ public class GameManager : MonoBehaviour
 
     private bool CheckEntries()
     {
-        var entriesAreAccepted = false; //pessimistic
+        var entriesAreAccepted = true; //optimistic
         var roundData = CurrentRoundData;
         var answers = roundData.Answers;
         //for all input fields, compare with data answers
@@ -108,6 +113,7 @@ public class GameManager : MonoBehaviour
         else
         {
             inputFields.ShakeField(1);
+            entriesAreAccepted = false;
         }
 
         //check field 2
@@ -118,6 +124,7 @@ public class GameManager : MonoBehaviour
         else
         {
             inputFields.ShakeField(2);
+            entriesAreAccepted = false;
         }
 
         //check field 3
@@ -128,6 +135,7 @@ public class GameManager : MonoBehaviour
         else
         {
             inputFields.ShakeField(3);
+            entriesAreAccepted = false;
         }
 
         return entriesAreAccepted;
@@ -140,11 +148,19 @@ public class GameManager : MonoBehaviour
         var data = CurrentRoundData;//cache calculation
         //TODO load data from round and set in scene
 
-        //instantiate objects for the round
-        currentRoundInstance = Instantiate(data.RoundPrefab, roundObjectsHandle);
-        var roundObjectsTransform = currentRoundInstance.GetComponent<Transform>();
-        roundObjectsTransform.localPosition = Vector3.zero;//reset position
-        roundObjectsTransform.localRotation = Quaternion.identity;//reset rotation
+        if (data.RoundPrefab)
+        {
+            //instantiate objects for the round
+            currentRoundInstance = Instantiate(data.RoundPrefab, roundObjectsHandle);
+            var roundObjectsTransform = currentRoundInstance.GetComponent<Transform>();
+            roundObjectsTransform.localPosition = Vector3.zero;//reset position
+            roundObjectsTransform.localRotation = Quaternion.identity;//reset rotation
+
+        }
+        else
+        {
+            Debug.Log("No prefab for round " + data.name + " yet");
+        }
 
         //play music
 
