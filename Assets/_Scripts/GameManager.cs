@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private RoundData CurrentRoundData { get => rounds[roundIndex]; }
 
     [Header("---Game Manager---")]
+    [SerializeField]
+    private InputFieldController inputFields;
 
     /// <summary>
     /// parent new rounds to this object
@@ -94,9 +96,39 @@ public class GameManager : MonoBehaviour
     private bool CheckEntries()
     {
         var entriesAreAccepted = false; //pessimistic
-
+        var roundData = CurrentRoundData;
+        var answers = roundData.Answers;
         //for all input fields, compare with data answers
-        //track which 
+        
+        //check field 1
+        if (answers.Field1Answers.Contains(inputFields.FieldOneText))
+        {   //correct answer in field 1
+            inputFields.JumpField(1);
+        }
+        else
+        {
+            inputFields.ShakeField(1);
+        }
+
+        //check field 2
+        if (answers.Field1Answers.Contains(inputFields.FieldOneText))
+        {   //correct answer in field 2
+            inputFields.JumpField(2);
+        }
+        else
+        {
+            inputFields.ShakeField(2);
+        }
+
+        //check field 3
+        if (answers.Field1Answers.Contains(inputFields.FieldOneText))
+        {   //correct answer in field 3
+            inputFields.JumpField(3);
+        }
+        else
+        {
+            inputFields.ShakeField(3);
+        }
 
         return entriesAreAccepted;
     }
