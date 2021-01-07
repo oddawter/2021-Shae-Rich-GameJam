@@ -13,8 +13,30 @@ MonoBehaviour:
   m_Name: Dinner_RoundAnswers
   m_EditorClassIdentifier: 
   field1Answers:
-  - red
+  - drink
+  - beverage
+  - sink water
+  - vinegar
+  - bubbled liquid
+  - supsicious milk
+  - water
+  - just water
   field2Answers:
-  - green
+  - food
+  - meal
+  - course
+  - dessert
+  - skunk tail
+  - skunktail
+  - cotton ball
+  - cottonball
+  - weef bellington
+  - weefbellington
   field3Answers:
-  - blue
+  - dessert
+  - desert
+  - mac and cheese
+  - mac n cheese
+  - mac & cheese
+  - water
+  - sour cream

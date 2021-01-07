@@ -81,24 +81,30 @@ public class InputFieldController : MonoBehaviour
 
     public void JumpField(int fieldNum)
     {
-        if (fieldNum == 1)
+        if (fieldNum == 1 && fieldOne.interactable)
         {
             JumpField(fieldOneRect);
+            fieldOne.DeactivateInputField();
+            fieldOne.interactable = false;
 
         }
-        else if (fieldNum == 2)
+        else if (fieldNum == 2 && fieldTwo.interactable)
         {
             JumpField(fieldTwoRect);
+            fieldTwo.DeactivateInputField();
+            fieldTwo.interactable = false;
 
         }
-        else if (fieldNum == 3)
+        else if (fieldNum == 3 && fieldThree.interactable)
         {
             JumpField(fieldThreeRect);
+            fieldThree.DeactivateInputField();
+            fieldThree.interactable = false;
 
         }
         else
         {
-            Debug.LogError("dangit.");
+            //Debug.LogError("dangit.");
         }
     }
 
@@ -135,5 +141,9 @@ public class InputFieldController : MonoBehaviour
         fieldOneRect.DOLocalMove(cachedField1Position, 0.5f);
         fieldTwoRect.DOLocalMove(cachedField2Position, 0.5f);
         fieldThreeRect.DOLocalMove(cachedField3Position, 0.5f);
+
+        fieldOne.interactable = true;
+        fieldTwo.interactable = true;
+        fieldThree.interactable = true;
     }
 }

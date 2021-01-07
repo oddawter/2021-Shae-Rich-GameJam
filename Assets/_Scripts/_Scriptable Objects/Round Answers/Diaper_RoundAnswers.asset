@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Diaper_RoundAnswers
   m_EditorClassIdentifier: 
   field1Answers:
-  - red
+  - remove
   field2Answers:
-  - green
+  - clean
+  - wipe
   field3Answers:
-  - blue
+  - reapply
+  - add
+  - wrap
