@@ -188,6 +188,7 @@ public class GameManager : MonoBehaviour
         //set sounds
 
         //set timer
+        roundTimer.Value = data.RoundTime;
         roundTimerRoutine = StartCoroutine(CountRoundTimer(data.RoundTime));
 
         //play animations
@@ -204,7 +205,12 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator CountRoundTimer(float roundLength)
     {
-        yield return new WaitForSecondsRealtime(roundLength);
+        var finishTime = roundLength + Time.time;
+        while (Time.time < finishTime)
+        {
+            roundTimer.Value -= Time.deltaTime;
+            yield return null;
+        }
 
         OnRoundTimerElapsed();
     }
