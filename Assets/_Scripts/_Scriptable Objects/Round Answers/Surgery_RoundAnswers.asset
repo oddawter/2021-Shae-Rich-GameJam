@@ -13,8 +13,18 @@ MonoBehaviour:
   m_Name: Surgery_RoundAnswers
   m_EditorClassIdentifier: 
   field1Answers:
-  - red
+  - sanitize
+  - clean
+  - wash
   field2Answers:
-  - green
+  - cut
+  - scalpel
+  - incise
+  - open
+  - inspect
   field3Answers:
-  - blue
+  - suture
+  - close
+  - shut
+  - stitch
+  - stiches

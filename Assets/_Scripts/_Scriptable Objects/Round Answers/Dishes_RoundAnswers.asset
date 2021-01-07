@@ -13,8 +13,17 @@ MonoBehaviour:
   m_Name: Dishes_RoundAnswers
   m_EditorClassIdentifier: 
   field1Answers:
-  - red
+  - rinse
+  - wash
+  - clean
+  - water
   field2Answers:
-  - green
+  - soap
+  - dishsoap
+  - dish soap
+  - sponge
+  - wash
   field3Answers:
-  - blue
+  - dry
+  - air dry
+  - airdry

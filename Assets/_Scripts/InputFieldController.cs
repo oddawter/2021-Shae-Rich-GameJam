@@ -14,11 +14,11 @@ public class InputFieldController : MonoBehaviour
     [SerializeField]
     private RectTransform fieldOneRect;
 
-    public string FieldOneText { get => fieldOne.text; }
+    public string FieldOneText { get => fieldOne.text.ToLower(); }
 
     [SerializeField]
     private TMP_InputField fieldTwo;
-    public string FieldTwoText { get => fieldTwo.text; }
+    public string FieldTwoText { get => fieldTwo.text.ToLower(); }
     
     [SerializeField]
     private RectTransform fieldTwoRect;
@@ -29,7 +29,7 @@ public class InputFieldController : MonoBehaviour
     [SerializeField]
     private RectTransform fieldThreeRect;
 
-    public string FieldThreeText { get => fieldThree.text; }
+    public string FieldThreeText { get => fieldThree.text.ToLower(); }
 
     [Header("---Animation---")]
     [SerializeField]
@@ -59,7 +59,7 @@ public class InputFieldController : MonoBehaviour
     /// Extract input text from each field.
     /// </summary>
     public string[] Answers { get => new string[]
-    {fieldOne.text, fieldTwo.text, fieldThree.text};}
+    {fieldOne.text.ToLower(), fieldTwo.text.ToLower(), fieldThree.text.ToLower()};}
 
     private void Start()
     {
