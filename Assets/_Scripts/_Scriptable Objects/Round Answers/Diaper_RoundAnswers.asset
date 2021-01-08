@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   field1Answers:
   - remove
+  - unwrap
   field2Answers:
   - clean
   - wipe
@@ -24,4 +25,4 @@ MonoBehaviour:
   - replace
   - new
   - diaper
-  - new diaper
+  - newdiaper

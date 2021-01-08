@@ -17,26 +17,23 @@ MonoBehaviour:
   - beverage
   - sink water
   - vinegar
-  - bubbled liquid
-  - supsicious milk
+  - bubbledliquid
+  - suspiciousmilk
   - water
-  - just water
+  - justwater
   field2Answers:
   - food
   - meal
   - course
   - dessert
-  - skunk tail
   - skunktail
-  - cotton ball
   - cottonball
-  - weef bellington
   - weefbellington
   field3Answers:
   - dessert
   - desert
-  - mac and cheese
-  - mac n cheese
-  - mac & cheese
+  - macandcheese
+  - macncheese
+  - mac&cheese
   - water
-  - sour cream
+  - sourcream

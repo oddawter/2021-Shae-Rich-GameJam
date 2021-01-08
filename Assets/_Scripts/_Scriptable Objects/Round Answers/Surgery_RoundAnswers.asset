@@ -16,15 +16,19 @@ MonoBehaviour:
   - sanitize
   - clean
   - wash
+  - gloves
   field2Answers:
   - cut
   - scalpel
   - incise
   - open
   - inspect
+  - slice
   field3Answers:
   - suture
   - close
   - shut
   - stitch
   - stiches
+  - cover
+  - coverup
