@@ -145,5 +145,9 @@ public class InputFieldController : MonoBehaviour
         fieldOne.interactable = true;
         fieldTwo.interactable = true;
         fieldThree.interactable = true;
+
+        fieldOne.text = null;
+        fieldTwo.text = null;
+        fieldThree.text = null;
     }
 }
