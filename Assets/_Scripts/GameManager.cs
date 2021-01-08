@@ -167,7 +167,10 @@ public class GameManager : MonoBehaviour
         roundIndex = newRoundIndex; //catch arg
 
         var data = CurrentRoundData;//cache calculation
-        //TODO load data from round and set in scene
+                                    //TODO load data from round and set in scene
+
+        if (currentRoundInstance != null)
+            Destroy(currentRoundInstance);
 
         if (data.RoundPrefab)
         {
@@ -208,8 +211,9 @@ public class GameManager : MonoBehaviour
         var finishTime = roundLength + Time.time;
         while (Time.time < finishTime)
         {
-            roundTimer.Value -= Time.deltaTime;
+            var previousTIme = Time.time;
             yield return null;
+            roundTimer.Value -= Time.time - previousTIme;
         }
 
         OnRoundTimerElapsed();
