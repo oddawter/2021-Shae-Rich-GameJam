@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904b82b8cdda5fb40a4872b6f1384a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 802302569683630749, guid: df0e0bc7678ddc544befd0feea859a18,
+    type: 3}
   inputFields: {fileID: 0}
   roundObjectsHandle: {fileID: 3397836258272193918}
   roundTimer: {fileID: 11400000, guid: 9205ebe88d71b394991c484cbb0409e0, type: 2}

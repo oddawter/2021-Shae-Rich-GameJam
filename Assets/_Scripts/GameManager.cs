@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public GameObject explosion;
+
     private RoundData CurrentRoundData { get => rounds[roundIndex]; }
 
     [Header("---Game Manager---")]
@@ -203,10 +205,7 @@ public class GameManager : MonoBehaviour
 
     private void OnRoundTimerElapsed()
     {
-        //TODO explode bomb
-        //game over
-        //restart after time
-        //etc
+        Instantiate(explosion);
     }
 
     private IEnumerator CountRoundTimer(float roundLength)
