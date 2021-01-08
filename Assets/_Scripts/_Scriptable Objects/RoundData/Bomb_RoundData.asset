@@ -19,4 +19,5 @@ MonoBehaviour:
   - Don't do blue first!
   - Red comes before green!
   roundTime: 60
-  roundPrefab: {fileID: 0}
+  roundPrefab: {fileID: 4665704773894470917, guid: e98ef9a3f32c27245be14b060076c739,
+    type: 3}

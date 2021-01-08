@@ -15,4 +15,5 @@ MonoBehaviour:
   answers: {fileID: 11400000, guid: a0609e3a5d8fe37438baeb2ed7f0723e, type: 2}
   hints: []
   roundTime: 60
-  roundPrefab: {fileID: 0}
+  roundPrefab: {fileID: 2286302691033439049, guid: 6ea592eecd25e0341bba186b10f5b66c,
+    type: 3}
