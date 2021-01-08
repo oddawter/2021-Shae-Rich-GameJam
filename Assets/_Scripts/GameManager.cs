@@ -106,6 +106,9 @@ public class GameManager : MonoBehaviour
     private static bool ListContainsString(List<string> acceptedAnswers, 
         string playerAnswer)
     {
+        //remove leading and following whitespace
+        playerAnswer.Trim();
+
         var accepted = false;
         for(var i = 0; i < acceptedAnswers.Count; ++i)
         {

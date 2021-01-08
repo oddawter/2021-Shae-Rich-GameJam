@@ -15,6 +15,7 @@ MonoBehaviour:
   field1Answers:
   - soap
   - dishsoap
+  - dish soap
   - wash
   - sponge
   - scrub
@@ -28,3 +29,4 @@ MonoBehaviour:
   field3Answers:
   - dry
   - airdry
+  - air dry
