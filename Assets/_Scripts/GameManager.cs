@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     //private runtime data
     private GameObject currentRoundInstance;
+    private bool isTransitioning;
     
     //coroutines
     private Coroutine roundTimerRoutine;
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isTransitioning) return; //suspend input check during transition between levels
         //get inputs
         var pressed_enter =
             Input.GetKeyDown(KeyCode.Return) ||
@@ -87,6 +89,7 @@ public class GameManager : MonoBehaviour
         {
             if (CheckEntries())
             {
+                isTransitioning = true;//set state
                 //TODO YOU WIN!
                 //on to the next level
                 var seq = DOTween.Sequence();
@@ -181,6 +184,7 @@ public class GameManager : MonoBehaviour
     private void StartNewRound(int newRoundIndex)
     {
         roundIndex = newRoundIndex; //catch arg
+        isTransitioning = false;//end state
 
         var data = CurrentRoundData;//cache calculation
                                     //TODO load data from round and set in scene
