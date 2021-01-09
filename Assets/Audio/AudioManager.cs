@@ -5,8 +5,6 @@ using UnityEditor;
 using UnityEngine.Audio;
 using DG.Tweening;
 
-namespace Explore.Audio
-{
     /// <summary>
     /// Holds an immutable ID.
     /// </summary>
@@ -325,4 +323,3 @@ namespace Explore.Audio
         #endregion
     }
 
-}

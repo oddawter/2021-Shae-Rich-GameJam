@@ -1,8 +1,5 @@
 ﻿using System;
-using Explore.Audio;
 
-namespace Explore
-{
     /// <summary>
     /// Options for dynamically playing sounds
     /// </summary>
@@ -70,4 +67,3 @@ namespace Explore
             loop: false, pitchShift: true, priority: 128, duration: -1, 
             crossfade: 0); }
     }
-}
