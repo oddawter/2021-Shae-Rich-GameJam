@@ -47,6 +47,10 @@ public class GameManager : MonoBehaviour
 
     private int NextIndex { get => (int)Mathf.Repeat(roundIndex + 1, rounds.Length); }
 
+    [Header("---Audio---")]
+    [SerializeField]
+    private AudioClip explosionSound;
+
     //private runtime data
     private GameObject currentRoundInstance;
     
@@ -61,6 +65,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartNewRound(0);
+        if (!AudioManager.IsInitialized)
+            AudioManager.Init();
     }
 
     // Update is called once per frame
@@ -205,7 +211,13 @@ public class GameManager : MonoBehaviour
 
     private void OnRoundTimerElapsed()
     {
+        //explosion effect
+        AudioManager.PlaySFX(explosionSound, pitchShift: false);
         Instantiate(explosion);
+
+        //stop timer
+        StopCoroutine(roundTimerRoutine);
+        roundTimer.Value = 0;
     }
 
     private IEnumerator CountRoundTimer(float roundLength)

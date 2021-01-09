@@ -59,6 +59,7 @@ MonoBehaviour:
   currentSceneIndex: 0
   mainMenuSceneIndex: 0
   gameSceneIndex: 1
+  explosionSound: {fileID: 8300000, guid: 6faf4b3f9e45eaf4795521e8a7f75ec0, type: 3}
 --- !u!1 &6168843171452296723
 GameObject:
   m_ObjectHideFlags: 0
