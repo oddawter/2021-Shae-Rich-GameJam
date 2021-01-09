@@ -204,6 +204,7 @@ using DG.Tweening;
             bool pitchShift = true, float crossfade = 0.0f, int priority = 128,
             float volume = 1.0f, float duration = 0.0f)
         {   //no default constructor
+            if (!clip) return null;//for safety
             var audioOptions = new AudioOptions();
 
             audioOptions.pitchShift = pitchShift;
