@@ -216,7 +216,8 @@ public class GameManager : MonoBehaviour
         Instantiate(explosion);
 
         //stop timer
-        StopCoroutine(roundTimerRoutine);
+        if(roundTimerRoutine != null)
+            StopCoroutine(roundTimerRoutine);
         roundTimer.Value = 0;
     }
 
