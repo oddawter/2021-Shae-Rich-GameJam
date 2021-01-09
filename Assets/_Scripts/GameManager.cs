@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject explosion;
 
+    private Transform canvas;
+
     private RoundData CurrentRoundData { get => rounds[roundIndex]; }
 
     [Header("---Game Manager---")]
@@ -65,6 +67,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartNewRound(0);
+
+        canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
+
         if (!AudioManager.IsInitialized)
             AudioManager.Init();
     }
@@ -213,7 +218,7 @@ public class GameManager : MonoBehaviour
     {
         //explosion effect
         AudioManager.PlaySFX(explosionSound, pitchShift: false);
-        Instantiate(explosion);
+        Instantiate(explosion, canvas);
 
         //stop timer
         if(roundTimerRoutine != null)
