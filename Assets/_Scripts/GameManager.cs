@@ -89,6 +89,8 @@ public class GameManager : MonoBehaviour
         {
             if (CheckEntries())
             {
+                if (roundTimerRoutine != null)
+                    StopCoroutine(roundTimerRoutine);
                 isTransitioning = true;//set state
                 //TODO YOU WIN!
                 //on to the next level
