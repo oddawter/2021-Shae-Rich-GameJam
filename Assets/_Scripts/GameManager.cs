@@ -188,7 +188,8 @@ public class GameManager : MonoBehaviour
 
         var data = CurrentRoundData;//cache calculation
                                     //TODO load data from round and set in scene
-
+        if (roundTimerRoutine != null)
+            StopCoroutine(roundTimerRoutine);
         if (currentRoundInstance != null)
             Destroy(currentRoundInstance);
 
